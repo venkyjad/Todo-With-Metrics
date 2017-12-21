@@ -1,0 +1,56 @@
+<html>
+<title>Todo List</title>
+<meta charset="utf-8"/>
+<head>
+  <!-- Angular CDN -->
+  
+
+  <!-- <link rel="stylesheet" href="css/index.css"> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+	<script src="https://use.fontawesome.com/611631a803.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- <script src="assets/js/Chart.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+	<script src="assets/js/angular-chart.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/datepicker.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/loader.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+</head>
+<body ng-app="myApp">
+	<nav class="navbar navbar-light">
+		  <a class="navbar-brand" href="#"><img src="assets/imgs/itilite.png"></a>
+			  <ul class="nav justify-content-end">
+				  <li class="nav-item">
+				    <a class="nav-link active" href="#!/">Todo Lists</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#!/metrics">Mertrics</a>
+				  </li>
+		
+				</ul>
+		</nav>
+	<div class="container">
+		
+	
+		<div ng-view></div>
+
+	
+
+
+	</div>
+	<script src="assets/js/app/app.js"></script>
+	<script src="assets/js/app/todoController.js"></script>
+	<script src="assets/js/app/notesController.js"></script>
+	<script src="assets/js/app/metricsController.js"></script>
+ 
+  
+  <script src="assets/js/datepicker.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	
+</body>
+</html>

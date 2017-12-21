@@ -1,0 +1,12 @@
+<div class="row" style="padding-top: 20px;" ng-controller="notesController">
+<ul style="list-style: none;">
+	<li ng-repeat="item in notesCollection | orderBy: -createdOn">
+	<h5>{{item.note}}</h5>
+	<p style="color:#999;font-size:12px;">{{item.createdOn}}</p>
+
+	</li>
+</ul>
+<div class="col-sm-12">
+<div ng-hide="notesCollection.length" class="text-center"><h4>No Notes Have been added for this Task</h4></div>
+</div>
+</div>
