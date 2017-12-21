@@ -1,121 +1,121 @@
 <div>
 <div class="spinner" ng-show="loader_flag">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
+<div class="bounce1"></div>
+<div class="bounce2"></div>
+<div class="bounce3"></div>
 </div>
 <div class="row" style="padding-top: 20px;" ng-hide="loader_flag">
 
-			<div class="col-sm-6 col-xs-12">
-			<h6 class="text-orange">Todo List</h6>
-			<div class="card">
-				<div class="card-body" style="min-height: 348px;">
-					<div class="text-center" ng-hide="todolists.length" style="margin-top: 40px;">
-			<h4>No Tasks Have Been added yet</h4>
-			</div>
-			<table class="table" ng-show="todolists.length">
-			  <thead>
-			    <tr>
-			      <th scope="col">Description</th>
-			      <th scope="col">Due Date</th>
-			      <th scope="col">Actions</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr ng-repeat="items in todolists" class="highlight">
-			      <td><h6 style="margin-bottom: 0px;margin-top:0px;">{{items.todo}}</h6>
-			      <table class="table borderless" >
-			      <tbody>
-			      	<tr>
-				      	<td style="padding-left: 0px;">
-				      	<h6 style="color:#999;margin-top:0px;margin-bottom:0px;">Assigned To:&nbsp;{{items.username}}</h6>
-				      	<span class="badge badge-pill badge-primary" ng-hide="items	.isDone">Pending</span>
-				      	<span class="badge badge-pill badge-success" ng-show="items	.isDone">Completed</span>
+	<div class="col-sm-12 col-md-6 col-xs-12">
+	<h6 class="text-orange">Todo List</h6>
+	<div class="card">
+		<div class="card-body" style="min-height: 348px;">
+			<div class="text-center" ng-hide="todolists.length" style="margin-top: 40px;">
+	<h4>No Tasks Have Been added yet</h4>
+	</div>
+	<table class="table" ng-show="todolists.length">
+	  <thead>
+	    <tr>
+	      <th scope="col">Description</th>
+	      <th scope="col">Due Date</th>
+	      <th scope="col">Actions</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="items in todolists" class="highlight">
+	      <td><h6 style="margin-bottom: 0px;margin-top:0px;">{{items.todo}}</h6>
+	      <table class="table borderless" >
+	      <tbody>
+	      	<tr>
+		      	<td style="padding-left: 0px;">
+		      	<h6 style="color:#999;margin-top:0px;margin-bottom:0px;">Assigned To:&nbsp;{{items.username}}</h6>
+		      	<span class="badge badge-pill badge-primary" ng-hide="items	.isDone">Pending</span>
+		      	<span class="badge badge-pill badge-success" ng-show="items	.isDone">Completed</span>
 
-				      	</td>
-				      
-			      	</tr>
-			      	</tbody>
-			      </table>
-			      </td>
-			      <td><h6 style="margin-bottom: 0px;margin-top:0px;">{{items.dueDate}}</h6></td>
-			      <td><a href="" ng-click="delete(items._id)">Delete&nbsp;</a>|<a href="" ng-click="complete(items._id)" ng-hide="items.isDone">&nbsp;Complete&nbsp;</a>|<a href="#!/details/{{items._id}}" >View</a></td>
-			    </tr>
-			  </tbody>
-			</table>	
-				</div>
-			</div>
-			
-			</div>
-
-			<div class="col-sm-3 col-xs-12">
-			<h6 class="text-orange">Add Task</h6>
-			<div class="card">
-			 <div class="card-body">
-			 	<form class="form">
-
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Description</label>
-				    <input type="text" class="form-control" placeholder="Enter Description" ng-model="todoList.todo">
-				  </div>
-
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Assign To</label>
-				    <input type="text" class="form-control" placeholder="User Name" ng-model="todoList.username">
-				  </div>
-
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Due Date</label>
-				    <input type="text" datepicker class="form-control datepicker" placeholder="Enter Date" data-date-format="dd/mm/yyyy" ng-model="todoList.dueDate">
-				  </div>
-
-				  <button class="btn btn-success btn-md" type="submit" ng-hide="loader" ng-click="addTodo(todoList)">Add</button>
-
-				  <button class="btn btn-success btn-md" disabled ng-show="loader"><i class="fa fa-spin fa-spinner" aria-hidden="true"></i></button>
-				  
-
-				  <button class="btn btn-danger btn-md" type="button" ng-click="reset()">Reset</button>
-				  
-				</form>
-				</div>
-			 </div>
-			</div>
-
-				<div class="col-sm-3 col-xs-12">
-		<h6 class="text-orange">Scrap Pad</h6>
-		<div class="card">
-			 <div class="card-body">
-			 	<form class="form">
-
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Notes</label>
-				    <textarea class="form-control" rows="4" ng-model="scrapad.note"></textarea>
-				  </div>
-
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Link it to</label>
-				    <select class="form-control" ng-model="scrapad.id">
-				    	<option ng-repeat="items in todolists" value="{{items._id}}">{{items.todo}}</option>
-				    	
-				    </select>
-				  </div>
-
-				  
-
-				  <button class="btn btn-success btn-md" type="submit" ng-click="addNote(scrapad)" ng-hide="loader2">Add</button>
-
-				  <button class="btn btn-success btn-md" disabled ng-show="loader2"><i class="fa fa-spin fa-spinner" aria-hidden="true"></i></button>
-
-
-				  
-				  
-				</form>
-				</div>
-			 </div>
-			</div>
-
-		</div>	
+		      	</td>
+		      
+	      	</tr>
+	      	</tbody>
+	      </table>
+	      </td>
+	      <td><h6 style="margin-bottom: 0px;margin-top:0px;">{{items.dueDate}}</h6></td>
+	      <td><a href="" ng-click="delete(items._id)">Delete&nbsp;</a>|<a href="" ng-click="complete(items._id)" ng-hide="items.isDone">&nbsp;Complete&nbsp;</a>|<a href="#!/details/{{items._id}}" >View</a></td>
+	    </tr>
+	  </tbody>
+	</table>	
 		</div>
+	</div>
+	
+	</div>
+
+	<div class="col-sm-12 col-md-3 col-xs-12">
+	<h6 class="text-orange">Add Task</h6>
+	<div class="card">
+	 <div class="card-body">
+	 	<form class="form">
+
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Description</label>
+		    <input type="text" class="form-control" placeholder="Enter Description" ng-model="todoList.todo">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Assign To</label>
+		    <input type="text" class="form-control" placeholder="User Name" ng-model="todoList.username">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Due Date</label>
+		    <input type="text" datepicker class="form-control datepicker" placeholder="Enter Date" data-date-format="dd/mm/yyyy" ng-model="todoList.dueDate">
+		  </div>
+
+		  <button class="btn btn-success btn-md" type="submit" ng-hide="loader" ng-click="addTodo(todoList)">Add</button>
+
+		  <button class="btn btn-success btn-md" disabled ng-show="loader"><i class="fa fa-spin fa-spinner" aria-hidden="true"></i></button>
+		  
+
+		  <button class="btn btn-danger btn-md" type="button" ng-click="reset()">Reset</button>
+		  
+		</form>
 		</div>
+	 </div>
+	</div>
+
+		<div class="col-sm-12 col-md-3 col-xs-12">
+<h6 class="text-orange">Scrap Pad</h6>
+<div class="card">
+	 <div class="card-body">
+	 	<form class="form">
+
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Notes</label>
+		    <textarea class="form-control" rows="4" ng-model="scrapad.note"></textarea>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Link it to</label>
+		    <select class="form-control" ng-model="scrapad.id">
+		    	<option ng-repeat="items in todolists" value="{{items._id}}">{{items.todo}}</option>
+		    	
+		    </select>
+		  </div>
+
+		  
+
+		  <button class="btn btn-success btn-md" type="submit" ng-click="addNote(scrapad)" ng-hide="loader2">Add</button>
+
+		  <button class="btn btn-success btn-md" disabled ng-show="loader2"><i class="fa fa-spin fa-spinner" aria-hidden="true"></i></button>
+
+
+		  
+		  
+		</form>
+		</div>
+	 </div>
+	</div>
+
+</div>	
+</div>
+</div>
 
 

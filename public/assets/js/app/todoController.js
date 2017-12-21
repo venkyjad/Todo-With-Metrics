@@ -3,6 +3,7 @@ app.controller('todoListController', function($scope, $http) {
    
   $scope.master = {};
 
+  // List of all Tasks
   $scope.getTodoLists = function(){
     
     $scope.loader_flag = true;
@@ -26,13 +27,14 @@ app.controller('todoListController', function($scope, $http) {
   
   }
 
+  // Reset Creation of Task Form
   $scope.reset = function(){
     $scope.todoList = angular.copy($scope.master);
   }
 
   $scope.addTodo = function(user){
     $scope.loader = true;
-    // $scope.contentFlag = true;
+    
     $scope.todoData = angular.copy(user);
     url = 'api/todo'
     $http({
@@ -53,6 +55,7 @@ app.controller('todoListController', function($scope, $http) {
 
   }
 
+  // delete A task
   $scope.delete = function(id){
     url = 'api/todo'
     $http({
@@ -72,7 +75,7 @@ app.controller('todoListController', function($scope, $http) {
 
   }
 
-
+  // Add Note linkning to task
   $scope.addNote = function(note){
     $scope.loader2 = true;
     url = 'api/notes'
@@ -94,6 +97,8 @@ app.controller('todoListController', function($scope, $http) {
 
 
   }
+
+  // Mark As Complete
   $scope.complete = function(id){
 
     url = 'api/todo'

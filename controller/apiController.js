@@ -7,10 +7,11 @@ module.exports= function(app){
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended : true }));
 
+	// Gets List Of Todos
 	app.get('/api/todos', function(req , res) {
 		Todos.find({}, function(err, todos){
 			if (err) throw err;
-			res.send(todos);
+			res.json(todos);
 
 		});
 	
@@ -18,15 +19,17 @@ module.exports= function(app){
 		
 	});
 
+	// Gets Note with particulat id
 	app.get('/api/notes/:id',function(req, res){
 		Notes.find({ id:req.params.id}, function(err, notes){
 			if (err) throw err;
-			res.send(notes)
+			res.json(notes)
 		});
 
 
 	});
 
+	// Creats or Updates an Todo list
 	app.post('/api/todo', function(req, res){
 
 
@@ -63,6 +66,8 @@ module.exports= function(app){
 		
 	});
 
+
+	// Delete A Todo List
 	app.delete('/api/todo', function(req, res){
 		Todos.findByIdAndRemove(req.body.id, function(err){
 			if (err) throw error;
@@ -71,6 +76,7 @@ module.exports= function(app){
 
 	});
 
+	// Creates A note linking a task
 	app.post('/api/notes', function(req, res){
 		Notes.find({ id:req.body.id}, function(err, notes){
 			if (err) throw err;
@@ -98,19 +104,15 @@ module.exports= function(app){
 				
 
 		});
-
-
-
-
-
-		
 	});
+
+	// Gets Count of tasks asssigned to each users
 	app.get('/api/todo/users', function(req, res){
 		
 		Todos.aggregate([
         {
             $group: {
-                _id: '$username',  //$region is the column name in collection
+                _id: '$username',  
                 count: {$sum: 1}
             }
         }
@@ -123,6 +125,8 @@ module.exports= function(app){
     });
 	});
 
+
+	// Gets Counts of on time and Late Submissions
 	app.get('/api/todo/submissions', function(req, res){
 		Todos.aggregate([
      

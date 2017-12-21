@@ -1,5 +1,5 @@
 app.controller('metricsController', function($scope, $http){
- 
+ // Gets no. of Tasks Assigned
  $scope.getMetricsPie = function(){
   $scope.loader_flag = true;
   url = 'api/todo/users'
@@ -54,6 +54,7 @@ app.controller('metricsController', function($scope, $http){
 
 
  }
+ // Gets Time of submission
  $scope.getMetricsBar = function(){
   url = 'api/todo/submissions'
     $http({
