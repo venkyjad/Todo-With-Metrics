@@ -2,7 +2,7 @@
   "name": "todolist",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
     "mongoose": "^4.13.7",
     "angular-chart.js": "^1.1.1",
     "mongoose-auto-increment": "^5.0.1"
+  },
+  "engines": {
+    "node": "9.3.0"
   }
 }
